@@ -1,0 +1,17 @@
+[project]
+name = "uvr"
+version = "0.1.0"
+description = "uvr"
+readme = "README.md"
+authors = [
+    { name = "karnigen", email = "karnigen@gmail.com" }
+]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+uvr = "uvr"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

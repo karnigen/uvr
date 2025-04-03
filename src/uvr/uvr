@@ -7,11 +7,6 @@ if len(sys.argv) < 2:
     print("Usage: #!/usr/bin/env uvr")
     sys.exit(1)
 
-# print(sys.argv)
-# exit(0)
-# working directory
-# print(os.getcwd())
-
 script = sys.argv[1]
 script = os.path.realpath(script)
 scriptDir = os.path.dirname(script)
