@@ -37,7 +37,7 @@ Several ways to run your Python scripts with `uv`:
 2.  **Using `uvr script.py`:**
 
     * This is a more direct way to execute your Python script (`script.py`) using `uvr`.
-    * `uvr` will attempt to resolve the script path as needed by `--project` flag.
+    * `uvr` automatically determines the project directory based on the script path, effectively mimicking the `--project` flag's behavior.
     * Example:
 
         ```bash
