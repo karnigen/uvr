@@ -2,7 +2,10 @@
 
 # Simple Script Execution with uvr
 
-Unfortunately, `uv` prioritizes virtual environments within the current directory. This makes it cumbersome to execute scripts located elsewhere, requiring the use of the `--project` flag.
+[`uv`](https://github.com/Textualize/rich) is a fast, modern Python package installer and resolver, designed as a drop-in replacement for pip and pip-compile.
+
+Unfortunately, [`uv`](https://github.com/Textualize/rich)
+prioritizes virtual environments within the current directory. This makes it cumbersome to execute scripts located elsewhere, requiring the use of the `--project` flag.
 
 This script offers a streamlined workaround for running Python scripts via `uv`, allowing you to use `uvr script.py` instead of `uv run --project <script_path> script.py`."
 
@@ -34,7 +37,7 @@ Several ways to run your Python scripts with `uv`:
 2.  **Using `uvr script.py`:**
 
     * This is a more direct way to execute your Python script (`script.py`) using `uvr`.
-    * `uvr` will attempt to resolve any dependencies required by the script.
+    * `uvr` will attempt to resolve the script path as needed by `--project` flag.
     * Example:
 
         ```bash
