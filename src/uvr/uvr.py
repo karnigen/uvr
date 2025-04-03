@@ -5,7 +5,7 @@ import sys
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: #!/usr/bin/env uvr")
+        print("Usage in shebang: #!/usr/bin/env uvr")
         sys.exit(1)
 
     script = sys.argv[1]
