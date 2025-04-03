@@ -12,7 +12,7 @@ def main():
     script = os.path.realpath(script)
     scriptDir = os.path.dirname(script)
 
-    os.execlp('uv', 'uv', 'run', '--project', scriptDir, script, *sys.argv[2:])
+    os.execlp('uv', 'uv', 'run', '--project', scriptDir, '--script', script, *sys.argv[2:])
 
 if __name__ == "__main__":
     main()
