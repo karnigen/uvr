@@ -41,7 +41,7 @@ def main():
     script = os.path.realpath(script)
     scriptDir = os.path.dirname(script)
 
-    prog_args = ['uv', 'uv', 'run'] + pre_opt + ['--project', scriptDir, '--script', script] + post_opt
+    prog_args = ['uv', 'uv', 'run'] + pre_opt + ['--project', scriptDir, script] + post_opt
     os.execlp(*prog_args)
 
 if __name__ == "__main__":
