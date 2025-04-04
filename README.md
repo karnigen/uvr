@@ -31,7 +31,7 @@ Several ways to run your Python scripts with `uv`:
     * Example:
 
         ```bash
-        uvr run [options] --project /path/to/project my_script.py
+        uvr run [options] --project /path/to/project my_script.py [script_options]
         ```
 
 2.  **Using `uvr script.py`:**
@@ -41,7 +41,7 @@ Several ways to run your Python scripts with `uv`:
     * Example:
 
         ```bash
-        uvr [options] [--] my_script.py [options]
+        uvr [options] [--] my_script.py [script_options]
         ```
 
 
