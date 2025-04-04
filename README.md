@@ -50,7 +50,7 @@ Several ways to run your Python scripts with `uv`:
     * Example:
 
         ```python
-        #!/usr/bin/env -S [options] [--] uvr
+        #!/usr/bin/env -S uvr [options] [--]
 
         # Your Python code here...
         ```
