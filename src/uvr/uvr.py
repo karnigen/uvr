@@ -53,12 +53,11 @@ def main():
         sys.exit(1)
 
     if not os.path.isfile(script):
-        print(f"Script not found: {script}")
-        sys.exit(1)
-
-    script = os.path.realpath(script)
-    scriptDir = os.path.dirname(script)
-    prog_args = ['uv', 'run'] + pre_opt + ['--project', scriptDir, script] + post_opt
+        prog_args = ['uv', 'run'] + pre_opt + [script] + post_opt  # fall back to uv run, script may be on the path
+    else:
+        script = os.path.realpath(script)
+        scriptDir = os.path.dirname(script)
+        prog_args = ['uv', 'run'] + pre_opt + ['--project', scriptDir, script] + post_opt
 
     if '-v' in pre_opt:
         print(f"DEBUG uv {prog_args=}")
