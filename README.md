@@ -7,7 +7,7 @@
 Unfortunately, [`uv`](https://github.com/Textualize/rich)
 prioritizes virtual environments within the current directory. This makes it cumbersome to execute scripts located elsewhere, requiring the use of the `--project` flag.
 
-This script offers a streamlined workaround for running Python scripts via `uv`, allowing you to use `uvr script.py` instead of `uv run --project <script_path> script.py`."
+This script offers a streamlined workaround for running Python scripts via `uv`, allowing you to use `uvr [options] script.py` instead of `uv run [options] --project <script_path> script.py`."
 
 
 
@@ -31,7 +31,7 @@ Several ways to run your Python scripts with `uv`:
     * Example:
 
         ```bash
-        uvr run --project /path/to/your/project my_script.py
+        uvr run [options] --project /path/to/project my_script.py
         ```
 
 2.  **Using `uvr script.py`:**
@@ -41,7 +41,7 @@ Several ways to run your Python scripts with `uv`:
     * Example:
 
         ```bash
-        uvr my_script.py
+        uvr [options] [--] my_script.py [options]
         ```
 
 
@@ -50,7 +50,13 @@ Several ways to run your Python scripts with `uv`:
     * Example:
 
         ```python
-        #!/usr/bin/env uvr
+        #!/usr/bin/env -S [options] [--] uvr
 
         # Your Python code here...
+        ```
+
+4.  **Debug usage:**
+    * Example:
+        ```bash
+        uvr -v [options] [--] my_script.py [options]
         ```

@@ -7,8 +7,7 @@ import sys
 #      -> uv run -a --b --cc value --project scriptDir --script script.py --d
 # assume: uvr -a --b script.py --d
 #      -> uv run -a --b --project scriptDir --script script.py --d
-# problematic case: uvr -a --b -- -f script.py --d
-#      -> uv run -a --b --project scriptDir --script script.py -f --d ??? not solved yet -f
+# problematic case: uvr -a --b -- -f script.py --d   # error -f after --
 def resolve_argv():
     pre_opt = []
     script = None
@@ -39,6 +38,8 @@ def main():
     if len(sys.argv) < 2:
         print("Shebang usage:      #!/usr/bin/env -S uvr [options] [--]")
         print("Command line usage: uvr [options] [--] script.py [script options]")
+        print("Debug usage:        uvr -v [options] [--] script.py [script options]")
+
         sys.exit(1)
 
     pre_opt, script, post_opt = resolve_argv()
@@ -59,7 +60,6 @@ def main():
     scriptDir = os.path.dirname(script)
     prog_args = ['uv', 'run'] + pre_opt + ['--project', scriptDir, script] + post_opt
 
-    # DEBUG
     if '-v' in pre_opt:
         print(f"DEBUG uv {prog_args=}")
 
