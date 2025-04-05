@@ -1,0 +1,11 @@
+{
+    "coverage-gutters.coverageFileNames": [
+
+        "lcov.info",
+        "cov.xml",
+        "coverage.xml",
+        "cobertura.xml",
+        "jacoco.xml",
+        "coverage.cobertura.xml"
+    ],
+}
