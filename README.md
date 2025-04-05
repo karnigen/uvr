@@ -19,6 +19,13 @@ To install `uvr`, use the following command:
 uv tool install --from git+https://github.com/karnigen/uvr uvr
 ```
 
+To upgrade `uvr`, use the following command:
+
+```bash
+uv tool upgrade uvr
+```
+
+
 
 ## Usage
 

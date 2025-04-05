@@ -34,7 +34,8 @@ def resolve_argv():
 
     return pre_opt, script, post_opt
 
-def main():
+
+def main():  # pragma: no cover
     if len(sys.argv) < 2:
         print("Shebang usage:      #!/usr/bin/env -S uvr [options] [--]")
         print("Command line usage: uvr [options] [--] script.py [script options]")
