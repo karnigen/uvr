@@ -193,7 +193,7 @@ wheels = [
 
 [[package]]
 name = "uvr"
-version = "0.1.14"
+version = "0.1.15"
 source = { editable = "." }
 
 [package.dev-dependencies]

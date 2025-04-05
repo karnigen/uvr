@@ -58,5 +58,5 @@ Several ways to run your Python scripts with `uv`:
 4.  **Debug usage:**
     * Example:
         ```bash
-        uvr -v [options] [--] my_script.py [options]
+        uvr -v [options] [--] my_script.py [script_options]
         ```

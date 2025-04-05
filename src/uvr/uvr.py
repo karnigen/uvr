@@ -4,9 +4,9 @@ import os
 import sys
 
 # assume: uvr -a --b --cc value -- script.py --d
-#      -> uv run -a --b --cc value --project scriptDir --script script.py --d
+#      -> uv run -a --b --cc value --project scriptDir script.py --d
 # assume: uvr -a --b script.py --d
-#      -> uv run -a --b --project scriptDir --script script.py --d
+#      -> uv run -a --b --project scriptDir script.py --d
 # problematic case: uvr -a --b -- -f script.py --d   # error -f after --
 def resolve_argv():
     pre_opt = []
@@ -53,16 +53,16 @@ def main():
         sys.exit(1)
 
     if not os.path.isfile(script):
-        prog_args = ['uv', 'run'] + pre_opt + [script] + post_opt  # fall back to uv run, script may be on the path
+        prog_args = ['uv', 'uv', 'run'] + pre_opt + [script] + post_opt  # fall back to uv run
     else:
         script = os.path.realpath(script)
         scriptDir = os.path.dirname(script)
-        prog_args = ['uv', 'run'] + pre_opt + ['--project', scriptDir, script] + post_opt
+        prog_args = ['uv', 'uv', 'run'] + pre_opt + ['--project', scriptDir, script] + post_opt
 
     if '-v' in pre_opt:
         print(f"DEBUG uv {prog_args=}")
 
-    os.execlp('uv', *prog_args)
+    os.execlp(*prog_args)
 
 if __name__ == "__main__":
     main()
