@@ -76,7 +76,11 @@ Several ways to run your Python scripts with `uv`:
 
         This will be executed as `uv run [options] --script ...` if `[options]` do not already contain `--script` or `--gui-script`.
 
+    * Or, to be more explicit, you can include the `--script`  flag directly in the shebang:
 
+        ```python
+        #!/usr/bin/env -S uvr --script
+        ```
 5.  **Debug usage:**
     * Example:
         ```bash
