@@ -62,7 +62,22 @@ Several ways to run your Python scripts with `uv`:
         # Your Python code here...
         ```
 
-4.  **Debug usage:**
+4. **Scripts without `.py` or `.pyw` extension:**
+    * Automatic `--script` option is added if not already present (`--script` or `--gui-script`) in options.
+    * Otherwise, `uv` might loop indefinitely.
+
+    * Example: For a `foo` script:
+
+        ```python
+            #!/usr/bin/env -S uvr [options] [--]
+
+            # Your Python code here...
+        ```
+
+        This will be executed as `uv run [options] --script ...` if `[options]` do not already contain `--script` or `--gui-script`.
+
+
+5.  **Debug usage:**
     * Example:
         ```bash
         uvr -v [options] [--] my_script.py [script_options]

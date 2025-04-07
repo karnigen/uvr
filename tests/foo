@@ -1,0 +1,7 @@
+#!/usr/bin/env -S uvr
+
+#!/usr/bin/env -S uvr --gui-script
+
+#!/usr/bin/env -S uvr --script
+
+print("Hello from uvr!")

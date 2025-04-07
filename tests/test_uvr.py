@@ -46,3 +46,10 @@ def test_resolve_argv():
     assert pre_opt == []
     assert script == 'script.py'
     assert post_opt == ['--option1', '--option2']
+
+    # Test case 7: Not .py or .pyw extension
+    sys.argv = ['uvr', '--', 'script', '--option1', '--option2']
+    pre_opt, script, post_opt = resolve_argv()
+    assert pre_opt == ['--script']
+    assert script == 'script'
+    assert post_opt == ['--option1', '--option2']
