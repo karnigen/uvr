@@ -2,9 +2,9 @@
 
 # Simple Script Execution with uvr
 
-[`uv`](https://github.com/Textualize/rich) is a fast, modern Python package installer and resolver, designed as a drop-in replacement for pip and pip-compile.
+[`uv`](https://github.com/astral-sh/uv.git) is a fast, modern Python package installer and resolver, designed as a drop-in replacement for pip and pip-compile.
 
-Unfortunately, [`uv`](https://github.com/Textualize/rich)
+Unfortunately, [`uv`](https://github.com/astral-sh/uv.git)
 prioritizes virtual environments within the current directory. This makes it cumbersome to execute scripts located elsewhere, requiring the use of the `--project` flag.
 
 This script offers a streamlined workaround for running Python scripts via `uv`, allowing you to use `uvr [options] script.py` instead of `uv run [options] --project <script_path> script.py`."

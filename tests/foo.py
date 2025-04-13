@@ -1,7 +1,10 @@
-#!/usr/bin/env -S uvr2
+#!/usr/bin/env -S uvr --
 
 #!/usr/bin/env -S uvr --gui-script
 
 #!/usr/bin/env -S uvr --script
 
-print("Hello from uvr!")
+import sys
+
+# print("Hello from uvr!")
+print(sys.argv)
