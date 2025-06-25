@@ -9,6 +9,10 @@ wheels/
 # Virtual environments
 .venv
 
+# uv
+uv.lock
+
 # Coverage
 .coverage
 coverage.*
+
