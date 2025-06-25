@@ -1,3 +1,4 @@
+
 # Python-generated files
 __pycache__/
 *.py[oc]
@@ -8,6 +9,8 @@ wheels/
 
 # Virtual environments
 .venv
+
+.vscode
 
 # uv
 uv.lock
