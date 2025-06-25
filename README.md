@@ -9,7 +9,7 @@ prioritizes virtual environments within the current directory. This makes it cum
 
 This script offers a streamlined workaround for running Python scripts via `uv`, allowing you to use `uvr [options] script.py` instead of `uv run [options] --project <script_path> script.py`."
 
-**Its primary value lies in its simplicity and immediate usability, providing a quick fix for a pressing pain point.**
+Its primary value lies in its simplicity and immediate usability, providing a quick fix for a pressing pain point.
 
 
 ## Installation
