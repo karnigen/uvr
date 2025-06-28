@@ -9,7 +9,7 @@ prioritizes virtual environments within the current directory. This makes it cum
 
 This script offers a streamlined workaround for running Python scripts via `uv`, allowing you to use `uvr [options] script.py` instead of `uv run [options] --project <script_path> script.py`."
 
-Its primary value lies in its simplicity and immediate usability, providing a quick fix for a pressing pain point.
+Its primary value lies in its simplicity and immediate usability, providing a *quick fix* for a pressing pain point.
 
 
 ## Installation
@@ -39,18 +39,19 @@ Several ways to run your Python scripts with `uv`:
     * Example:
 
         ```bash
-        uvr run [options] --project /path/to/project my_script.py [script_options]
+        uv run [options] --project /path/to/project run_script.py [script_options]
         ```
 
 2.  **Using `uvr script.py`:**
 
-    * This is a more direct way to execute your Python script (`script.py`) using `uvr`.
+    * This is a more direct way to execute your Python script (`run_script.py`) using `uvr`.
     * `uvr` automatically determines the project directory based on the script path, effectively mimicking the `--project` flag's behavior.
     * Example:
 
         ```bash
-        uvr [options] [--] my_script.py [script_options]
+        uvr [options] [--] run_script.py [script_options]
         ```
+    * Always use `--` if the automatic script identification fails or could be ambiguous.
 
 
 3.  **Shebang Usage:**
@@ -62,6 +63,7 @@ Several ways to run your Python scripts with `uv`:
 
         # Your Python code here...
         ```
+    * Always use `--` if the automatic script identification fails or could be ambiguous.
 
 4. **Scripts without `.py` or `.pyw` extension:**
     * Automatic `--script` option is added if not already present (`--script` or `--gui-script`) in options.
@@ -71,7 +73,6 @@ Several ways to run your Python scripts with `uv`:
 
         ```python
             #!/usr/bin/env -S uvr [options] [--]
-
             # Your Python code here...
         ```
 
@@ -82,8 +83,28 @@ Several ways to run your Python scripts with `uv`:
         ```python
         #!/usr/bin/env -S uvr --script
         ```
+
+    * **Important Exception for Non-Files**: If the identified `script_path` (the argument immediately following options or `--`) does not point to an actual file on disk, `uvr` will not automatically add the `--script` or `--gui-script` option. This behavior ensures `uvr` can correctly pass through commands that are executables within the virtual environment (e.g., `uvr black .`, `uvr pytest`), rather than a Python script file.
+
+
 5.  **Debug usage:**
     * Example:
         ```bash
-        uvr -v [options] [--] my_script.py [script_options]
+        uvr -v [options] [--] run_script.py [script_options]
+        uvr -vv [options] [--] run_script.py [script_options]
         ```
+
+
+## General Rule for Using the `--` Separator
+The `--` argument functions as a standard command-line delimiter. It explicitly separates options intended for `uvr` (and its underlying `uv` process) from arguments specifically designated for the Python script being executed.
+
+Arguments appearing before the `--` are processed by `uvr/uv`. Arguments appearing after the -- are passed directly to the invoked Python script.
+
+This explicit separation is crucial for:
+
+* **Preventing Ambiguity**: `uvr` employs a basic heuristic to identify the script path (the first non-hyphenated argument). This can lead to misinterpretation if the script itself accepts options that resemble `uvr/uv` arguments.
+
+* **Ensuring Precise Argument Passing**: By using `--`, users guarantee that all subsequent arguments are correctly delivered to their script, bypassing `uvr's` argument parsing logic.
+
+**Recommendation**: Utilize the -- separator whenever precise control over argument distribution between `uvr/uv` and the target script is required.
+
