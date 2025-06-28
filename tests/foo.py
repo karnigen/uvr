@@ -1,4 +1,4 @@
-#!/usr/bin/env -S uvr -v --
+#!/usr/bin/env -S uvr -vv --
 
 # will be called as: uvr -vv  tests/foo.py
 

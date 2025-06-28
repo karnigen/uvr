@@ -98,7 +98,7 @@ Several ways to run your Python scripts with `uv`:
 ## General Rule for Using the `--` Separator
 The `--` argument functions as a standard command-line delimiter. It explicitly separates options intended for `uvr` (and its underlying `uv` process) from arguments specifically designated for the Python script being executed.
 
-Arguments appearing before the `--` are processed by `uvr/uv`. Arguments appearing after the -- are passed directly to the invoked Python script.
+Arguments appearing before the `--` are processed by `uvr` (`uv`). Arguments appearing after the `--` are passed directly to the invoked Python script.
 
 This explicit separation is crucial for:
 
@@ -106,5 +106,5 @@ This explicit separation is crucial for:
 
 * **Ensuring Precise Argument Passing**: By using `--`, users guarantee that all subsequent arguments are correctly delivered to their script, bypassing `uvr's` argument parsing logic.
 
-**Recommendation**: Utilize the -- separator whenever precise control over argument distribution between `uvr/uv` and the target script is required.
+**Recommendation**: Utilize the `--` separator whenever precise control over argument distribution between `uvr/uv` and the target script is required.
 
