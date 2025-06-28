@@ -1,4 +1,4 @@
-#!/usr/bin/env -S uvr
+#!/usr/bin/env -S uvr -v
 
 #!/usr/bin/env -S uvr --gui-script
 
