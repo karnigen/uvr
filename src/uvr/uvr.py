@@ -89,8 +89,13 @@ def main():  # pragma: no cover
     if '-v' in pre_opt:
         print(f"DEBUG uv {prog_args=}", file=sys.stderr)
 
-    os.execlp(*prog_args)
-
+    # os.execlp(*prog_args)
+    if sys.platform == "win32":
+        import subprocess
+        subprocess.run(prog_args)
+        sys.exit(0)
+    else:
+        os.execlp(*prog_args)
 
 if __name__ == "__main__":  # pragma: no cover
     main()
