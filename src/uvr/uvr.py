@@ -2,6 +2,7 @@
 
 import os
 import sys
+import subprocess
 
 # Option '--' is separator.  When you use it, you're telling uvr to treat all arguments that come after it
 #   as destined exclusively for your Python script, not for uvr or uv.
@@ -76,26 +77,23 @@ def main():  # pragma: no cover
         sys.exit(1)
 
     if not os.path.isfile(run_script):    # fall back to uv run
-        prog_args = ['uv', 'uv', 'run'] + pre_opt + [
+        prog_args = ['uv', 'run'] + pre_opt + [
             run_script
         ] + post_opt  # fall back to uv run
     else:
         run_script = os.path.realpath(run_script)
         run_script_dir = os.path.dirname(run_script)
-        prog_args = ['uv', 'uv', 'run'] + pre_opt + [
+        prog_args = ['uv', 'run'] + pre_opt + [
             '--project', run_script_dir, run_script
         ] + post_opt
 
     if '-v' in pre_opt:
         print(f"DEBUG uv {prog_args=}", file=sys.stderr)
 
-    # os.execlp(*prog_args)
-    if sys.platform == "win32":
-        import subprocess
-        subprocess.run(prog_args)
-        sys.exit(0)
-    else:
-        os.execlp(*prog_args)
+
+    subprocess.run(prog_args)
+    sys.exit(0)
+
 
 if __name__ == "__main__":  # pragma: no cover
     main()
