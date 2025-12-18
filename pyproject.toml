@@ -1,6 +1,6 @@
 [project]
 name = "uvr"
-version = "0.1.22"
+version = "0.1.23"
 description = "Simple script execution with uv - run Python scripts without explicit --project flag"
 readme = "README.md"
 authors = [
@@ -19,6 +19,8 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Software Development :: Build Tools",
 ]
 

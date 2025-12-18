@@ -17,8 +17,15 @@ Its primary value lies in its simplicity and immediate usability, providing a *q
 To install `uvr`, use the following command:
 
 ```bash
+uv tool install uvr
+```
+
+or
+
+```bash
 uv tool install --from git+https://github.com/karnigen/uvr uvr
 ```
+
 
 To upgrade `uvr`, use the following command:
 
@@ -63,6 +70,12 @@ Several ways to run your Python scripts with `uv`:
 
         # Your Python code here...
         ```
+
+    * **Note on `-S` flag**: The `-S` flag allows passing multiple arguments to the interpreter. It is optional if your `env` implementation supports it (most modern systems do). However:
+        - **Without `-S`**: You can only use `#!/usr/bin/env uvr` without additional options or parameters
+        - **With `-S`**: You can pass options like `#!/usr/bin/env -S uvr --with dep1 --`
+        - Some older or minimal Unix-like systems may not support the `-S` flag in `env`
+
     * Always use `--` if the automatic script identification fails or could be ambiguous.
 
 4. **Scripts without `.py` or `.pyw` extension:**
@@ -83,6 +96,8 @@ Several ways to run your Python scripts with `uv`:
         ```python
         #!/usr/bin/env -S uvr --script
         ```
+
+        (Use `#!/usr/bin/env uvr` if `-S` is not supported, but then you cannot pass additional options)
 
     * **Important Exception for Non-Files**: If the identified `script_path` (the argument immediately following options or `--`) does not point to an actual file on disk, `uvr` will not automatically add the `--script` or `--gui-script` option. This behavior ensures `uvr` can correctly pass through commands that are executables within the virtual environment (e.g., `uvr black .`, `uvr pytest`), rather than a Python script file.
 
